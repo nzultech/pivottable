@@ -401,7 +401,8 @@
         "Count": tpl.count(usFmtInt),
         // "Count Unique Values": tpl.countUnique(usFmtInt),
         // "List Unique Values": tpl.listUnique(", "),
-        "Sum": tpl.sum(usFmt),
+        "Sum": tpl.sum(usFmtInt),
+        // "Sum": tpl.sum(usFmt),
         // "Integer Sum": tpl.sum(usFmtInt),
         // "Average": tpl.average(usFmt),
         // "Median": tpl.median(usFmt),
@@ -1587,6 +1588,7 @@
               }
             }
             if (initialRender) {
+              _this.find(".pvtRendererArea").hide();
               vals = opts.vals;
               i = 0;
               _this.find(".pvtVals select.pvtAttrDropdown").each(function() {
@@ -1594,6 +1596,9 @@
                 return i++;
               });
               initialRender = false;
+            }
+            else {
+              _this.find(".pvtRendererArea").show();
             }
             subopts.aggregatorName = aggregator.val();
             subopts.vals = vals;
